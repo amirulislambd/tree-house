@@ -13,51 +13,70 @@
   </head>
   <body>
     <h1
-      class="text-center text-xl md:text-2xl text-green-500 py-5 sticky top-0 bg-[#fcfbfb] z-2 font-bold shadow-lg "
+      class="text-center text-xl md:text-2xl text-green-500 py-5 sticky top-0 bg-[#fcfbfb] z-2 font-bold shadow-lg"
     >
       Choose Your Trees
     </h1>
-    <main class="container mx-auto ">
+    <main class="container mx-auto">
       <section class="grid grid-cols-12 gap-5 p-5 shadow-lg">
         <!-- categories -->
-        <div id="categories-container" class="left col-span-3 space-y-3 sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto bg-[white] p-3 rounded-lg shadow-lg">
+        <div
+          id="categories-container"
+          class="left col-span-3 space-y-3 sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto bg-[white] p-3 rounded-lg shadow-lg"
+        >
           <h1 class="text-lg font-bold text-center">Categories</h1>
-          <button id="all-btn" class="btn btn-success w-full rounded ">
+          <button id="all-btn" class="btn btn-success w-full rounded">
             all
           </button>
         </div>
         <!-- Trees container -->
-        <div class="col-span-6 bg-gray-50 p-5 rounded-lg hadow-xl ">
+        <div class="col-span-6 bg-gray-50 p-5 rounded-lg hadow-xl">
           <div
             id="trees-container"
-            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 "
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"
           ></div>
           <!-- loading spinner -->
-           <div id="loadingSpinner" class="h-[60vh] flex items-center justify-center hidden" >
+          <div
+            id="loadingSpinner"
+            class="h-[60vh] flex items-center justify-center hidden"
+          >
             <span class="loading loading-dots loading-xl"></span>
-           </div>
+          </div>
         </div>
-        <div class="right col-span-3 bg-gray-100 p-4 shadow-lg sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto">
+        <div
+          class="right col-span-3 bg-gray-100 p-4 shadow-lg sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto"
+        >
           ajslkj
         </div>
       </section>
 
       <!-- product details modal -->
       <!-- Open the modal using ID.showModal() method -->
-      <button class="btn" onclick="tree_details.showModal()">open modal</button>
       <dialog id="tree_details" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
-          <h3 class="text-lg font-bold">Hello!</h3>
-          <p class="py-4">Press ESC key or click the button below to close</p>
-          <div class="modal-action">
-            <form method="dialog">
+          <img
+            class="h-64 w-full object-cover cursor-pointer rounded-lg"
+            id="modal-img"
+            src=""
+            alt=""
+          />
+          <div class="modal-modal-action">
+            <h3 id="modal-title" class="text-2xl font-bold"></h3>
+            <p id="description" class="py-4"></p>
+            <p
+              id="modal-category"
+              class="badge badge-success badge-outline"
+            ></p>
+            <form method="dialog" class="flex justify-between mt-5">
+              <p class="text-2xl font-bold text-green-500">
+                <span>$</span><span id="modal-price"></span>
+              </p>
               <!-- if there is a button in form, it will close the modal -->
               <button class="btn">Close</button>
             </form>
           </div>
         </div>
       </dialog>
-
     </main>
 
     <script src="script.js"></script>

@@ -3,6 +3,12 @@ const treesContainer = document.getElementById("trees-container");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const allButton = document.getElementById('all-btn')
 const tree_details = document.getElementById('tree_details')
+
+const modalTitle = document.getElementById('modal-title')
+const modalImg = document.getElementById('modal-img')
+const modalDescription = document.getElementById('description')
+const modalCategory = document.getElementById('modal-category')
+const modalPrice = document.getElementById('modal-price')
 // console.log(categoriesContainer);
 console.log(allButton)
 allButton.addEventListener('click', ()=>{
@@ -67,11 +73,11 @@ function displayTrees(trees) {
   trees.forEach((element) => {
     const card = document.createElement("div");
     card.innerHTML = `
-        <div class="card bg-base-100 shadow-sm">
+        <div class="card  bg-base-100 shadow-sm">
               <figure>
                 <img
                 onclick="openTreeModal(${element.id})"
-                class="h-48 w-full object-cover"
+                class="h-48 w-full object-cover cursor-pointer"
                   src=${element.image}
                   alt=${element.name}
                 />
@@ -81,9 +87,9 @@ function displayTrees(trees) {
                 <p class="line-clamp-2">
                   ${element.description}
                 </p>
-                <div class="badge badge-success badge-outline">Primary</div>
+                <div class="badge badge-success badge-outline">${element.category}</div>
                 <div class="card-actions items-center justify-between">
-                  <h1 class="font-bold text-xl text-green-500">${element.price}</h1>
+                  <h1 class="font-bold text-xl text-green-500">$${element.price}</h1>
                   <button class="btn btn-success text-white">Buy Now</button>
                 </div>
               </div>
@@ -93,8 +99,18 @@ function displayTrees(trees) {
   });
 }
 
-function openTreeModal(treeId){
+async function openTreeModal(treeId){
     console.log(treeId)
+const res = await fetch(`https://openapi.programming-hero.com/api/plant/${treeId}`)
+const data = await res.json()
+const platsDetails = data.plants
+console.log(platsDetails.name)
+modalTitle.textContent = platsDetails.name
+modalImg.src = platsDetails.image
+modalDescription.textContent = platsDetails.description
+modalCategory.textContent = platsDetails.category
+modalPrice.textContent = platsDetails.price
+console.log(platsDetails)
     tree_details.showModal()
 }
 
