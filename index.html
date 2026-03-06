@@ -8,7 +8,15 @@
       rel="stylesheet"
       type="text/css"
     />
+
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <title>Document</title>
   </head>
   <body>
@@ -22,7 +30,7 @@
         <!-- categories -->
         <div
           id="categories-container"
-          class="left col-span-3 space-y-3 sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto bg-[white] p-3 rounded-lg shadow-lg"
+          class="left col-span-3 space-y-3 sticky top-14 h-fit max-h-[calc(100vh-120px)] overflow-y-auto bg-[white] p-3 rounded-lg shadow-lg"
         >
           <h1 class="text-lg font-bold text-center">Categories</h1>
           <button id="all-btn" class="btn btn-success w-full rounded">
@@ -44,9 +52,26 @@
           </div>
         </div>
         <div
-          class="right col-span-3 bg-gray-100 p-4 shadow-lg sticky top-24 h-fit max-h-[cald(100hv-120px)] overflow-y-auto"
+          class="right col-span-3 bg-gray-100 p-4 shadow-lg  sticky top-14 h-fit max-h-[calc(100vh-120px)] overflow-y-auto"
         >
-          ajslkj
+          <div class="flex items-center mb-5">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <h1 class="font-bold">card</h1>
+          </div>
+          <div id="cardContainer" class="space-y-4 ">
+            <div id="emptyMessege" class="text-center border border-red-500 shadow p-2 rounded-xl ">
+              <h1 class="text-red-500 animate-bounce font-bold">No Card</h1>
+              <p class="text-yellow-500 font-semibold animate-pulse">Pleas Add  Your Card</p>
+            </div>
+            
+          </div>
+
+          <div
+            class="flex font-bold mt-4 bg-green-200 p-2 rounded-lg shadow-lg items-center justify-center"
+          >
+            <span>Total: $</span>
+            <span id="totalPrice">0</span>
+          </div>
         </div>
       </section>
 
@@ -55,7 +80,7 @@
       <dialog id="tree_details" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
           <img
-            class="h-64 w-full object-cover cursor-pointer rounded-lg"
+            class="h-48 w-full object-cover cursor-pointer rounded-lg"
             id="modal-img"
             src=""
             alt=""
